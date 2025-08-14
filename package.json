@@ -1,30 +1,60 @@
 {
-  "name": "webrtc-sdk",
-  "version": "2.2.7",
-  "description": "JavaScript WebRTC Calling SDK.",
-  "main": "js/webrtc-v2.js",
+  "name": "calldotso",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": ""
+    "postinstall": "turbo run build --filter=./packages/auth",
+    "build": "turbo build",
+    "dev": "dotenv -- turbo dev",
+    "start": "dotenv -- turbo start",
+    "lint": "turbo lint",
+    "format": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --edit",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:clean": "docker-compose down -v",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "dotenv -- turbo run db:migrate",
+    "db:push": "dotenv -- turbo run db:push",
+    "db:studio": "dotenv -- turbo run db:studio"
   },
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stephenlb/webrtc-sdk.git"
+  "devDependencies": {
+    "@call/eslint-config": "workspace:^",
+    "@call/typescript-config": "workspace:^",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@shadcn/ui": "^0.0.4",
+    "@types/node": "^20",
+    "dotenv-cli": "^8.0.0",
+    "eslint": "^9.20.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.5.1",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "turbo": "^2.4.2",
+    "typescript": "5.7.3"
   },
-  "keywords": [
-    "webrtc",
-    "webrtc-call",
-    "webrtc-demo",
-    "webrtc-dialing",
-    "webrtc-phone",
-    "webrtc-video",
-    "webrtc-sdk",
-    "webrtc-receiver"
-  ],
-  "author": "Stephen Blum",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/stephenlb/webrtc-sdk/issues"
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=20"
   },
-  "homepage": "http://stephenlb.github.io/webrtc-sdk#readme"
+  "dependencies": {
+    "@databuddy/sdk": "^1.4.0",
+    "@geist-ui/icons": "^1.0.2",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "chalk": "^5.4.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "mediasoup-client": "^3.12.5",
+    "react-icons": "^5.5.0",
+    "zod": "^3.25.67"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

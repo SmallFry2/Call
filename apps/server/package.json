@@ -1,0 +1,47 @@
+{
+  "name": "@call/server",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --exec tsx src/index.ts",
+    "dev:ws": "tsx src/mediasoup-server.ts",
+    "dev:hot": "nodemon --exec tsx src/index.ts",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "start:ws": "node dist/mediasoup-server.js",
+    "start:all": "node dist/index.js & node dist/mediasoup-server.js"
+  },
+  "dependencies": {
+    "@call/auth": "workspace:*",
+    "@call/db": "workspace:*",
+    "@hono/node-server": "^1.17.0",
+    "@hono/zod-validator": "^0.7.0",
+    "@t3-oss/env-core": "^0.13.8",
+    "@types/ws": "^8.18.1",
+    "axios": "^1.10.0",
+    "better-auth": "^1.2.9",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.44.2",
+    "hono": "^4.8.0",
+    "iovalkey": "^0.3.3",
+    "mediasoup": "^3.16.7",
+    "nanoid": "^5.1.5",
+    "pg": "^8.16.1",
+    "postgres": "^3.4.7",
+    "rate-limiter-flexible": "^7.1.1",
+    "resend": "^4.6.0",
+    "ws": "^8.18.3",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@call/typescript-config": "workspace:*",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@types/node": "^20",
+    "@types/pg": "^8.15.4",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.7.3"
+  }
+}

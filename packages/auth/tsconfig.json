@@ -1,0 +1,10 @@
+{
+  "extends": "@call/typescript-config/base",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@call/auth/*": ["../../packages/auth/src/*"]
+    }
+  }
+}
